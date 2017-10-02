@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="calUP">
+  <meta name="apple-mobile-web-app-title" content="sorUP">
+  <meta name="theme-color" content="#b3ffff">
+  <meta name="msapplication-navbutton-color" content="#ffff00">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="https://flow-randd.github.io/calendarUpdate/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    
+    <style> 
+      h5 {
+        color: grey;
+        margin-top: 0px
+      }
+      html, body {
+        height: 90%;
+        background: #FFFFFF;
+        padding: 0px;
+        height: 100%;
+        width: 99%;
+        margin: auto
+        background: #FFFFFF; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(rgba(179,255,255,1), white);
+        background: -moz-linear-gradient(rgba(179,255,255,1), white);
+        background: -o-linear-gradient(rgba(179,255,255,1), white);
+        background: linear-gradient(rgba(179,255,255,1), white 70%);
+      }
+      #div1 {  
+        border-radius: 25px;
+        padding: 10px;
+        height: auto;
+        width: auto;
+        margin: auto
+      }
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      /* Modal Content */
+      .modal-content {
+        position: relative;
+        background-color: rgba(255,255,255,0.8);
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+      }
+      /* Add Animation */
+      @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0} 
+        to {top:0; opacity:1}
+      }
+      @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+      }
+      /* The Close Button */
+      .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .modal-header {
+        padding: 2px 16px;
+        background-color: rgba(179,255,255,0.5);
+        color: white;
+      }
+      .modal-body {padding: 20px 16px;}
+      .modal-footer {
+        padding: 5px 16px;
+        background-color: rgba(179,255,255,0.5);
+        color: white;
+      }
+      img {
+        display: block;
+        margin: auto;
+        width: 80%
+      }
+    </style>
+    <img src="https://flow-randd.github.io/calendarUpdate/images/Flowstore_Logo_CUT OUT_v1.png" alt="FLOWSTORE SYSTEMS LTD.">
+  </head>
+
+  <body>
+  <bodyInner>  
+  <header><marquee><h3>Stock Take</h3></marquee></header>
+    <div id="div1">
+    <h5>Please complete the form</h5>
+    
+    <form name="formA">
+        Location:<br>
+        <input type="text" id="location" name="location" style="width:50%"><br><br>
+        GS-ACE Part Number:<br>
+        <input type="text" id="ptNum" name="ptNum" style="width:50%"><br><br>
+        Flowstore Stock Code:<br>
+        <input type="text" id="stockCd" name="stockCd" style="width:50%"><br><br>
+        Unit of Measure:<br>
+        <input type="radio" id="metre" name="unitOfMeasure" value="metre">Metre<br>
+        <input type="radio" id="each" name="unitOfMeasure" value="each">Each<br><br>
+        Notes:<br>
+        <input type="text" id="notes" name="notes" style="width:50%"><br><br>
+    </form>
+      
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Update this SOR?</h2>
+        </div>
+        <div class="modal-body">
+          <pre id="contentModal"></pre>
+        </div>
+        <div class="modal-footer">
+          <button class="action" onclick="emailAdds()">Confirm</button>
+        </div>
+      </div>
+      
+    </div>
+      
+    <div id="clickers">  
+    <!-- Trigger/Open The Modal -->
+    <button class="action" id="myBtn" onclick="sorUpdate()">Update</button>
+    <!-- Clear -->
+    <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
+      
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize-button" style="display: none;">Authorise</button><p>
+    <button id="signout-button" style="display: none;">Sign Out</button>
+    </div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+    <script>
+      var radios = document.formA.unitOfMeasure;
+        for(var i = 0, max = radios.length; i < max; i++) {
+          radios[i].onclick = function() {
+            if (this.value=="metre"){
+              var result = prompt("How many metres is this item:","3");
+            }else {
+              alert("This is a piece item");
+            }
+          }
+        }
+    </script>
+      
+    <script>
+    function postToGoogle(){
+      var location =$('#location').val();
+      var ptNum = $('#ptNum').val();
+      var stockCd = $('#stockCd').val();
+      var unitOfMeasure = "metre";//var unitOfMeasure = $('')
+      var notes = $('#notes').val();
+      
+      $.ajax({
+        url:"",data:{"entry_":location,"entry_":ptNum,"entry_":stockCd,"entry_":unitOfMeasure,"entry_":notes},
+        type:"POST",dataType:"xml",statusCode:
+        {0:function(){window.location.replace("thankyou.html");},200:function()
+        {window.location.replace("thamkyou.html");}}
+      });
+    }  
+    </script>
+      
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on the button, Update 
+      btn.onclick = function() {
+        sorUpdate();
+      }
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
