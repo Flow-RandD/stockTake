@@ -3,19 +3,19 @@
   "short_name": "stock",
   "lang": "en-GB",
   "icons": [{
-    "src": "images/calendar.png",
+    "src": "images/calculator1600.png",
     "type": "image/png",
     "sizes": "128x128"
   }, {
-    "src": "images/calendar.png",
+    "src": "images/calculator1600.png",
     "type": "image/png",
     "sizes": "152x152"
   }, {
-    "src": "images/calendar.png",
+    "src": "images/calculator1600.png",
     "type": "image/png",
     "sizes": "144x144"
   }, {
-    "src": "images/calendar.png",
+    "src": "images/calculator1600.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
