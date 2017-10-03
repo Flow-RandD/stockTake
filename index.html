@@ -128,43 +128,43 @@
     </script>
       
     <script>
-       var inputFields = [
-        {
-          labelId: '#loc',
-          inputId: '#location'
-        },
-        {
-          labelId: '#pt',
-          inputId: '#ptNum'
-        },
-        {
-          labelId: '#stock',
-          inputId: '#stockCd'
-        },
-        {
-          labelId: '#unit',
-          inputId: '#unitOfMeasure'
-        },
-        {
-          labelId: '#nt',
-          inputId: '#notes'
-        }
-      ];
+       //var inputFields = [
+        //{
+          //labelId: '#loc',
+          //inputId: '#location'
+        //},
+        //{
+          //labelId: '#pt',
+          //inputId: '#ptNum'
+        //},
+        //{
+          //labelId: '#stock',
+          //inputId: '#stockCd'
+        //},
+        //{
+          //labelId: '#unit',
+          //inputId: '#unitOfMeasure'
+        //},
+        //{
+          //labelId: '#nt',
+          //inputId: '#notes'
+        //}
+      //];
   
-      for(var i = 0; i < inputFields.length; i++) {
-          console.log('inputFields[i].inputId = '+inputFields[i].inputId);
-          var element = document.querySelector(inputFields[i].inputId);
-          element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
-          element.addEventListener('blur', function() {
-          console.log('blurEvent');
-          window.location.hash = "";
-      }, true);
-    }
+      //for(var i = 0; i < inputFields.length; i++) {
+          //console.log('inputFields[i].inputId = '+inputFields[i].inputId);
+          //var element = document.querySelector(inputFields[i].inputId);
+          //element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
+          //element.addEventListener('blur', function() {
+          //console.log('blurEvent');
+          //window.location.hash = "";
+      //}, true);
+    //}
 
-    function getEventListener(urlHash) {
-      return function(e) {
-        console.log('focusEvent = '+urlHash);
-        window.location.hash = urlHash;
-      };
-    }
+    //function getEventListener(urlHash) {
+      //return function(e) {
+        //console.log('focusEvent = '+urlHash);
+        //window.location.hash = urlHash;
+      //};
+    //}
     </script>
