@@ -41,67 +41,6 @@
         width: auto;
         margin: auto
       }
-      /* The Modal (background) */
-      .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-      }
-      /* Modal Content */
-      .modal-content {
-        position: relative;
-        background-color: rgba(255,255,255,0.8);
-        margin: auto;
-        padding: 0;
-        border: 1px solid #888;
-        width: 80%;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-        -webkit-animation-name: animatetop;
-        -webkit-animation-duration: 0.4s;
-        animation-name: animatetop;
-        animation-duration: 0.4s
-      }
-      /* Add Animation */
-      @-webkit-keyframes animatetop {
-        from {top:-300px; opacity:0} 
-        to {top:0; opacity:1}
-      }
-      @keyframes animatetop {
-        from {top:-300px; opacity:0}
-        to {top:0; opacity:1}
-      }
-      /* The Close Button */
-      .close {
-        color: white;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-      }
-      .close:hover,
-      .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .modal-header {
-        padding: 2px 16px;
-        background-color: rgba(179,255,255,0.5);
-        color: white;
-      }
-      .modal-body {padding: 20px 16px;}
-      .modal-footer {
-        padding: 5px 16px;
-        background-color: rgba(179,255,255,0.5);
-        color: white;
-      }
       img {
         display: block;
         margin: auto;
@@ -130,25 +69,6 @@
         Notes:<br>
         <input type="text" id="notes" name="notes" style="width:50%"><br><br>
     </form>
-      
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2>Update this SOR?</h2>
-        </div>
-        <div class="modal-body">
-          <pre id="contentModal"></pre>
-        </div>
-        <div class="modal-footer">
-          <button class="action" onclick="emailAdds()">Confirm</button>
-        </div>
-      </div>
-      
-    </div>
       
     <div id="clickers">  
     <!-- Trigger/Open The Modal -->
@@ -208,24 +128,55 @@
     </script>
       
     <script>
-      // Get the modal
-      var modal = document.getElementById('myModal');
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-      // When the user clicks on the button, Update 
-      //btn.onclick = function() {
-        //sorUpdate();
-      //}
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
+       var inputFields = [
+        {
+          labelId: '#name',
+          inputId: '#nameInput'
+        },
+        {
+          labelId: '#email',
+          inputId: '#emailInput'
+        },
+        {
+          labelId: '#homephone',
+          inputId: '#homephoneInput'
+        },
+        {
+          labelId: '#mobilephone',
+          inputId: '#mobilephoneInput'
+        },
+        {
+          labelId: '#address',
+          inputId: '#addressInput'
+        },
+        {
+          labelId: '#city',
+          inputId: '#cityInput'
+        },
+        {
+          labelId: '#province',
+          inputId: '#provinceInput'
+        },
+        {
+          labelId: '#postalcode',
+          inputId: '#postalcodeInput'
         }
-      }
+      ];
+  
+      for(var i = 0; i < inputFields.length; i++) {
+          console.log('inputFields[i].inputId = '+inputFields[i].inputId);
+          var element = document.querySelector(inputFields[i].inputId);
+          element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
+          element.addEventListener('blur', function() {
+          console.log('blurEvent');
+          window.location.hash = "";
+      }, true);
+    }
+
+    function getEventListener(urlHash) {
+      return function(e) {
+        console.log('focusEvent = '+urlHash);
+        window.location.hash = urlHash;
+      };
+    }
     </script>
