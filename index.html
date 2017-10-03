@@ -193,7 +193,9 @@
         {0:function(){
             alert("Stock record updated");
             $('input[name="unitOfMeasure"]:checked').prop('checked',false);
-            $('input[type="text"], textarea').val('');
+            $('input[name="ptNum"], textarea').val('');
+            $('input[name="stockCd"], textarea').val('');
+            $('input[name="notes"], textarea').val('');
           }
         }
       });
