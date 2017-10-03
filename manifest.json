@@ -1,6 +1,6 @@
 {
-  "name": "Calendar Update",
-  "short_name": "calUP",
+  "name": "Stock Take",
+  "short_name": "stock",
   "lang": "en-GB",
   "icons": [{
     "src": "images/calendar.png",
@@ -20,7 +20,7 @@
     "sizes": "192x192"
   }],
   "background_color": "#b3ffff",
-  "start_url": "https://flow-randd.github.io/calendarUpdate/",
+  "start_url": "https://flow-randd.github.io/stockTake/",
   "display": "fullscreen",
   "theme_color": "#b3ffff"
 }
