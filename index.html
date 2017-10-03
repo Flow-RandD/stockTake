@@ -183,10 +183,8 @@
       var location =$('#location').val();
       var ptNum = $('#ptNum').val();
       var stockCd = $('#stockCd').val();
-      var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val();
+      var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val() + " " + result;
       var notes = $('#notes').val();
-      
-      alert(unitOfMeasure + result);
       
       $.ajax({
         url:"https://docs.google.com/forms/d/e/1FAIpQLSfusBkjqEosrZc5SA-mzf1dVG0aNrD47A5DZk8gNKqYbbbfFA/formResponse",data:
