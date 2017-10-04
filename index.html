@@ -72,7 +72,7 @@
       
     <div id="clickers">  
     <!-- Trigger/Open The Modal -->
-    <button class="action" id="myBtn" onclick="postToGoogle()">Update</button>
+    <button class="action" id="myBtn" onclick="postToAppsScript()">Update</button>
     <!-- Clear -->
     <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
       
@@ -99,7 +99,8 @@
     </script>
       
     <script>
-    function postToGoogle(){      
+    <script>
+     function postToAppsScript(){      
       var location =$('#location').val();
       var ptNum = $('#ptNum').val();
       var stockCd = $('#stockCd').val();
@@ -107,11 +108,11 @@
       var notes = $('#notes').val();
       
       $.ajax({
-        url:"https://docs.google.com/forms/d/e/1FAIpQLSfusBkjqEosrZc5SA-mzf1dVG0aNrD47A5DZk8gNKqYbbbfFA/formResponse",data:
-        {"entry.1023543781":location,"entry.1737149180":ptNum,"entry.2135201187":stockCd,"entry.427889953":unitOfMeasure,"entry.1459547379":notes}, 
-        type:"POST",dataType:"xml",statusCode:
+        url:"https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec",data:
+        {"location":location,"ptNum":ptNum,"stockCd":stockCd,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
+        type:"POST",dataType:"json",statusCode:
         {0:function(){
-            alert("Stock record updated");
+            alert("JSON sent");
             $('input[name="unitOfMeasure"]:checked').prop('checked',false);
             $('input[name="ptNum"], textarea').val('');
             $('input[name="stockCd"], textarea').val('');
@@ -119,7 +120,28 @@
           }
         }
       });
-    }
+    } 
+    //function postToGoogle(){      
+      //var location =$('#location').val();
+      //var ptNum = $('#ptNum').val();
+      //var stockCd = $('#stockCd').val();
+      //var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val() + " " + result;
+      //var notes = $('#notes').val();
+      
+      //$.ajax({
+        //url:"https://docs.google.com/forms/d/e/1FAIpQLSfusBkjqEosrZc5SA-mzf1dVG0aNrD47A5DZk8gNKqYbbbfFA/formResponse",data:
+        //{"entry.1023543781":location,"entry.1737149180":ptNum,"entry.2135201187":stockCd,"entry.427889953":unitOfMeasure,"entry.1459547379":notes}, 
+        //type:"POST",dataType:"xml",statusCode:
+        //{0:function(){
+            //alert("Stock record updated");
+            //$('input[name="unitOfMeasure"]:checked').prop('checked',false);
+            //$('input[name="ptNum"], textarea').val('');
+            //$('input[name="stockCd"], textarea').val('');
+            //$('input[name="notes"], textarea').val('');
+          //}
+        //}
+      //});
+    //}
       
     function uncheckAll(){
         $('input[name="unitOfMeasure"]:checked').prop('checked',false);
