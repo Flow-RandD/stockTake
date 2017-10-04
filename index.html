@@ -55,21 +55,21 @@
   <header><marquee><h3>Stock Take</h3></marquee></header>
     <div id="div1">
     <h5>Please complete the form</h5>
-    
+    <!--action="https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec" method="post"-->
     <form name="formA">
-        <label id="loc">Location:</label><br>
+      <label id="loc">Location:</label><br>
         <input type="text" id="location" name="location" style="width:50%"><br><br>
-        <label id="pt">GS-ACE Part Number:</lable><br>
+        GS-ACE Part Number:<br>
         <input type="text" id="ptNum" name="ptNum" style="width:50%"><br><br>
-        <label id="stock">Flowstore Stock Code:</label><br>
+        Flowstore Stock Code:<br>
         <input type="text" id="stockCd" name="stockCd" style="width:50%"><br><br>
-        <label id="unit">Unit of Measure:</label><br>
+        Unit of Measure:<br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
-        <label id="nt">Notes:</label><br>
+        Notes:<br>
         <input type="text" id="notes" name="notes" style="width:50%"><br><br>
     </form>
-      
+           
     <div id="clickers">  
     <!-- Post -->
     <button class="action" type="submit" id="submit-form" onclick="postToAppsScript()">Submit</button>
@@ -99,7 +99,6 @@
     </script>
       
     <script>
-    <script>
      function postToAppsScript(){      
       var location =$('#location').val();
       var ptNum = $('#ptNum').val();
@@ -116,28 +115,22 @@
           }
         }
       });
-    } 
-    //function postToGoogle(){      
-      //var location =$('#location').val();
-      //var ptNum = $('#ptNum').val();
-      //var stockCd = $('#stockCd').val();
-      //var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val() + " " + result;
-      //var notes = $('#notes').val();
+    }  
       
-      //$.ajax({
-        //url:"https://docs.google.com/forms/d/e/1FAIpQLSfusBkjqEosrZc5SA-mzf1dVG0aNrD47A5DZk8gNKqYbbbfFA/formResponse",data:
-        //{"entry.1023543781":location,"entry.1737149180":ptNum,"entry.2135201187":stockCd,"entry.427889953":unitOfMeasure,"entry.1459547379":notes}, 
-        //type:"POST",dataType:"xml",statusCode:
-        //{0:function(){
-            //alert("Stock record updated");
-            //$('input[name="unitOfMeasure"]:checked').prop('checked',false);
-            //$('input[name="ptNum"], textarea').val('');
-            //$('input[name="stockCd"], textarea').val('');
-            //$('input[name="notes"], textarea').val('');
-          //}
-        //}
-      //});
-    //}
+    //var $form = $('form#formA'),
+    //url = 'https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec'
+
+      //$('#submit-form').on('click', function(e) {
+        //e.preventDefault();
+        //var jqxhr = $.ajax({
+          //url: url,
+          //method: "POST",
+          //dataType: "json",
+          //data: $form.serializeObject()
+        //}).success(
+          //alert('it is done');
+        //);
+      //})
       
     function uncheckAll(){
         $('input[name="unitOfMeasure"]:checked').prop('checked',false);
@@ -146,43 +139,55 @@
     </script>
       
     <script>
-       //var inputFields = [
-        //{
-          //labelId: '#loc',
-          //inputId: '#location'
-        //},
-        //{
-          //labelId: '#pt',
-          //inputId: '#ptNum'
-        //},
-        //{
-          //labelId: '#stock',
-          //inputId: '#stockCd'
-        //},
-        //{
-          //labelId: '#unit',
-          //inputId: '#unitOfMeasure'
-        //},
-        //{
-          //labelId: '#nt',
-          //inputId: '#notes'
-        //}
-      //];
+      var inputFields = [
+        {
+          labelId: '#name',
+          inputId: '#nameInput'
+        },
+        {
+          labelId: '#email',
+          inputId: '#emailInput'
+        },
+        {
+          labelId: '#homephone',
+          inputId: '#homephoneInput'
+        },
+        {
+          labelId: '#mobilephone',
+          inputId: '#mobilephoneInput'
+        },
+        {
+          labelId: '#address',
+          inputId: '#addressInput'
+        },
+        {
+          labelId: '#city',
+          inputId: '#cityInput'
+        },
+        {
+          labelId: '#province',
+          inputId: '#provinceInput'
+        },
+        {
+          labelId: '#postalcode',
+          inputId: '#postalcodeInput'
+        }
+      ];
   
-      //for(var i = 0; i < inputFields.length; i++) {
-          //console.log('inputFields[i].inputId = '+inputFields[i].inputId);
-          //var element = document.querySelector(inputFields[i].inputId);
-          //element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
-          //element.addEventListener('blur', function() {
-          //console.log('blurEvent');
-          //window.location.hash = "";
-      //}, true);
-    //}
+      for(var i = 0; i < inputFields.length; i++) {
+          console.log('inputFields[i].inputId = '+inputFields[i].inputId);
+          var element = document.querySelector(inputFields[i].inputId);
+          element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
+          element.addEventListener('blur', function() {
+          console.log('blurEvent');
+          window.location.hash = "";
+      }, true);
+    }
 
-    //function getEventListener(urlHash) {
-      //return function(e) {
-        //console.log('focusEvent = '+urlHash);
-        //window.location.hash = urlHash;
-      //};
-    //}
+    function getEventListener(urlHash) {
+      return function(e) {
+        console.log('focusEvent = '+urlHash);
+        window.location.hash = urlHash;
+      };
+    }
     </script>
