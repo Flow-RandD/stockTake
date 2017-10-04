@@ -112,6 +112,10 @@
         type:"POST",dataType:"json",statusCode:
         {0:function(){
             alert("JSON sent");
+            $('input[name="unitOfMeasure"]:checked').prop('checked',false);
+            $('input[name="ptNum"], textarea').val('');
+            $('input[name="stockCd"], textarea').val('');
+            $('input[name="notes"], textarea').val('');
           }
         }
       });
