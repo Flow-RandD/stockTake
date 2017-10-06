@@ -99,6 +99,26 @@
     </script>
       
     <script>
+      function validatorFS(){
+         var location =$('#location').val();
+         var ptNum = $('#ptNum').val();
+         var stockCd = $('#stockCd').val();
+         var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val() + " " + result;
+         var notes = $('#notes').val();
+        
+         $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbwj9cojincMON_MhvuN4PuPZnywKSLG8onzfBzBeKE2FjFzbLTF/exec",data:
+          {"location":location,"ptNum":ptNum,"stockCd":stockCd,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
+          type:"POST",dataType:"json",statusCode:
+          {0:function(){
+            alert("JSON sent validatorFS");
+          }
+         }
+        });
+      }
+    </script>
+        
+    <script>
      function postToAppsScript(){      
       var location =$('#location').val();
       var ptNum = $('#ptNum').val();
