@@ -57,16 +57,16 @@
     <h5>Please complete the form</h5>
     <!--action="https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec" method="post"-->
     <form name="formA">
-      <label id="loc">Location:</label><br>
+        <label id="locationLB">Location:</label><br>
         <input type="text" id="location" name="location" style="width:50%"><br><br>
-        GS-ACE Part Number:<br>
+        <label id=""LB">GS-ACE Part Number:</label><br>
         <input type="text" id="ptNum" name="ptNum" style="width:50%"><br><br>
-        Flowstore Stock Code:<br>
+        <label id="stockCdLB">Flowstore Stock Code:</label><br>
         <input type="text" id="stockCd" name="stockCd" style="width:50%"><br><br>
-        Unit of Measure:<br>
+        <label id="unitOfMeasureLB">Unit of Measure:</label><br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
-        Notes:<br>
+        <label id="notesLB">Notes:</label><br>
         <input type="text" id="notes" name="notes" style="width:50%"><br><br>
     </form>
            
@@ -161,36 +161,24 @@
     <script>
       var inputFields = [
         {
-          labelId: '#name',
-          inputId: '#nameInput'
+          labelId: '#locationLB',
+          inputId: '#location'
         },
         {
-          labelId: '#email',
-          inputId: '#emailInput'
+          labelId: '#ptNumLB',
+          inputId: '#ptNum'
         },
         {
-          labelId: '#homephone',
-          inputId: '#homephoneInput'
+          labelId: '#stockCdLB',
+          inputId: '#stockCd'
         },
         {
-          labelId: '#mobilephone',
-          inputId: '#mobilephoneInput'
+          labelId: '#unitOfMeasureLB',
+          inputId: '#unitOfMeasure'
         },
         {
-          labelId: '#address',
-          inputId: '#addressInput'
-        },
-        {
-          labelId: '#city',
-          inputId: '#cityInput'
-        },
-        {
-          labelId: '#province',
-          inputId: '#provinceInput'
-        },
-        {
-          labelId: '#postalcode',
-          inputId: '#postalcodeInput'
+          labelId: '#notesLB',
+          inputId: '#notes'
         }
       ];
   
