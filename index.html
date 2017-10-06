@@ -62,7 +62,7 @@
         <label id="ptNumLB">GS-ACE Part Number:</label><br>
         <input type="text" id="ptNum" name="ptNum" style="width:50%"><br><br>
         <label id="stockCdLB">Flowstore Stock Code:</label><br>
-        <input type="text" id="stockCd" name="stockCd" style="width:50%"><br><br>
+        <input type="text" id="stockCd" name="stockCd" style="width:50%" onblur="validatorFS()"><br><br>
         <label id="unitOfMeasureLB">Unit of Measure:</label><br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
@@ -139,7 +139,6 @@
       
     //var $form = $('form#formA'),
     //url = 'https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec'
-
       //$('#submit-form').on('click', function(e) {
         //e.preventDefault();
         //var jqxhr = $.ajax({
@@ -159,43 +158,42 @@
     </script>
       
     <script>
-      var inputFields = [
-        {
-          labelId: '#locationLB',
-          inputId: '#location'
-        },
-        {
-          labelId: '#ptNumLB',
-          inputId: '#ptNum'
-        },
-        {
-          labelId: '#stockCdLB',
-          inputId: '#stockCd'
-        },
-        {
-          labelId: '#unitOfMeasureLB',
-          inputId: '#unitOfMeasure'
-        },
-        {
-          labelId: '#notesLB',
-          inputId: '#notes'
-        }
-      ];
+      //var inputFields = [
+        //{
+          //labelId: '#locationLB',
+          //inputId: '#location'
+        //},
+        //{
+          //labelId: '#ptNumLB',
+          //inputId: '#ptNum'
+        //},
+        //{
+          //labelId: '#stockCdLB',
+          //inputId: '#stockCd'
+        //},
+        //{
+          //labelId: '#unitOfMeasureLB',
+          //inputId: '#unitOfMeasure'
+        //},
+        //{
+          //labelId: '#notesLB',
+          //inputId: '#notes'
+        //}
+      //];
   
-      for(var i = 0; i < inputFields.length; i++) {
-          console.log('inputFields[i].inputId = '+inputFields[i].inputId);
-          var element = document.querySelector(inputFields[i].inputId);
-          element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
-          element.addEventListener('blur', function() {
-          console.log('blurEvent');
-          window.location.hash = "";
-      }, true);
-    }
-
-    function getEventListener(urlHash) {
-      return function(e) {
-        console.log('focusEvent = '+urlHash);
-        window.location.hash = urlHash;
-      };
-    }
+      //for(var i = 0; i < inputFields.length; i++) {
+          //console.log('inputFields[i].inputId = '+inputFields[i].inputId);
+          //var element = document.querySelector(inputFields[i].inputId);
+          //element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
+          //element.addEventListener('blur', function() {
+          //console.log('blurEvent');
+          //window.location.hash = "";
+      //}, true);
+    //}
+    //function getEventListener(urlHash) {
+      //return function(e) {
+        //console.log('focusEvent = '+urlHash);
+        //window.location.hash = urlHash;
+      //};
+    //}
     </script>
