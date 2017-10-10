@@ -66,6 +66,8 @@
         <label id="unitOfMeasureLB">Unit of Measure:</label><br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
+        <label id="qtyLB">Quantity:</label><br>
+        <input type="text" id="qty" name="qty" style="width:50%"><br><br>
         <label id="notesLB">Notes:</label><br>
         <input type="text" id="notes" name="notes" style="width:50%"><br><br>
     </form>
@@ -137,17 +139,19 @@
       var ptNum = $('#ptNum').val();
       var stockCd = $('#stockCd').val();
       var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val() + " " + result;
+      var qty = $('#qty').val();
       var notes = $('#notes').val();
       
       $.ajax({
         url:"https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec",data:
-        {"location":location,"ptNum":ptNum,"stockCd":stockCd,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
+        {"location":location,"ptNum":ptNum,"stockCd":stockCd,"qty":qty,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
         type:"POST",dataType:"json",statusCode:
         {0:function(){
             alert("JSON sent");
             $('input[name="unitOfMeasure"]:checked').prop('checked',false);
             $('input[name="ptNum"], textarea').val('');
             $('input[name="stockCd"], textarea').val('');
+            $('input[name="qty"], textarea').val('');
             $('input[name="notes"], textarea').val('');
           }
         }
