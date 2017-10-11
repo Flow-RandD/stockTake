@@ -53,36 +53,36 @@
   </head>
 
   <body>
-  <bodyInner>  
+  <!--bodyInner-->  
   <header><marquee><h3>Stock Take</h3></marquee></header>
     <div id="div1">
     <h5>Please complete the form</h5>
-    <!--action="https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec" method="post"-->
-    <form name="formA">
-        <label id="locationLB">Location:</label><br>
-        <input type="text" id="location" name="location" style="width:50%"><br><br>
-        <label id="ptNumLB">GS-ACE Part Number:</label><br>
-        <input type="text" id="ptNum" name="ptNum" style="width:50%" onchange="validatorGS()"><br><br>
-        <label id="stockCdLB">Flowstore Stock Code:</label><br>
-        <input type="text" id="stockCd" name="stockCd" style="width:50%" onchange="validatorFS()"><br><br>
-        <label id="unitOfMeasureLB">Unit of Measure:</label><br>
-        <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
-        <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
-        <label id="qtyLB">Quantity:</label><br>
-        <input type="number" id="qty" name="qty" style="width:50%" onfocus="ensureVisible(this)"><br><br>
-        <label id="notesLB">Notes:</label><br>
-        <input type="text" id="notes" name="notes" style="width:50%" onfocus="ensureVisible(this)"><br><br>
-    </form>
+      <form name="formA">
+          <label id="locationLB">Location:</label><br>
+          <input type="text" id="location" name="location" style="width:50%"><br><br>
+          <label id="ptNumLB">GS-ACE Part Number:</label><br>
+          <input type="text" id="ptNum" name="ptNum" style="width:50%" onchange="validatorGS()"><br><br>
+          <label id="stockCdLB">Flowstore Stock Code:</label><br>
+          <input type="text" id="stockCd" name="stockCd" style="width:50%" onchange="validatorFS()"><br><br>
+          <label id="unitOfMeasureLB">Unit of Measure:</label><br>
+          <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
+          <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
+          <label id="qtyLB">Quantity:</label><br>
+          <input type="number" id="qty" name="qty" style="width:50%"><br><br>
+          <label id="notesLB">Notes:</label><br>
+          <input type="text" id="notes" name="notes" style="width:50%"><br><br>
+      </form>
            
-    <div id="clickers">  
-    <!-- Post -->
-    <button class="action" type="submit" id="submit-form" onclick="postToAppsScript()">Submit</button>
-    <!-- Clear -->
-    <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
+      <div id="clickers">  
+        <!-- Post -->
+        <button class="action" type="submit" id="submit-form" onclick="postToAppsScript()">Submit</button>
+        <!-- Clear -->
+        <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
       
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize-button" style="display: none;">Authorise</button><p>
-    <button id="signout-button" style="display: none;">Sign Out</button>
+        <!--Add buttons to initiate auth sequence and sign out-->
+        <button id="authorize-button" style="display: none;">Authorise</button><p>
+        <button id="signout-button" style="display: none;">Sign Out</button>
+      </div>
     </div>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
