@@ -110,7 +110,7 @@
         //window.scrollTo(0,500);  
         //document.body.scrollTop = $(this).offset().top;
         if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {           
-            window.scrollTo(0,100) // first value for left offset, second value for top offset
+            setTimeout(window.scrollTo(0,100),100); // first value for left offset, second value for top offset
         }else{
             $('html,body').animate({
                 scrollTop: 100,
