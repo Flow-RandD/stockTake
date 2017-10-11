@@ -95,6 +95,13 @@
         <button id="signout-button" style="display: none;">Sign Out</button>
       </div>
     </div>
+    
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -215,63 +222,8 @@
       });
     }  
       
-    //var $form = $('form#formA'),
-    //url = 'https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec'
-      //$('#submit-form').on('click', function(e) {
-        //e.preventDefault();
-        //var jqxhr = $.ajax({
-          //url: url,
-          //method: "POST",
-          //dataType: "json",
-          //data: $form.serializeObject()
-        //}).success(
-          //alert('it is done');
-        //);
-      //})
-      
     function uncheckAll(){
         $('input[name="unitOfMeasure"]:checked').prop('checked',false);
         $('input[type="text"], textarea').val('');
     }
-    </script>
-      
-    <script>
-      //var inputFields = [
-        //{
-          //labelId: '#locationLB',
-          //inputId: '#location'
-        //},
-        //{
-          //labelId: '#ptNumLB',
-          //inputId: '#ptNum'
-        //},
-        //{
-          //labelId: '#stockCdLB',
-          //inputId: '#stockCd'
-        //},
-        //{
-          //labelId: '#unitOfMeasureLB',
-          //inputId: '#unitOfMeasure'
-        //},
-        //{
-          //labelId: '#notesLB',
-          //inputId: '#notes'
-        //}
-      //];
-  
-      //for(var i = 0; i < inputFields.length; i++) {
-          //console.log('inputFields[i].inputId = '+inputFields[i].inputId);
-          //var element = document.querySelector(inputFields[i].inputId);
-          //element.addEventListener('focus', getEventListener(inputFields[i].labelId), true);
-          //element.addEventListener('blur', function() {
-          //console.log('blurEvent');
-          //window.location.hash = "";
-      //}, true);
-    //}
-    //function getEventListener(urlHash) {
-      //return function(e) {
-        //console.log('focusEvent = '+urlHash);
-        //window.location.hash = urlHash;
-      //};
-    //}
     </script>
