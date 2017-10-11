@@ -118,8 +118,16 @@
         //window.scrollTo(0,500);  
         //document.body.scrollTop = $(this).offset().top;
         if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
-          alert("Android phone");
             setTimeout(window.scrollTo(0,100),100); // first value for left offset, second value for top offset
+              if(/Android 4\.[0-3]/.test(navigator.appVersion)){
+                window.addEventListener("resize", function(){
+                  if(document.activeElement.tagName=="INPUT"){
+                    window.setTimeout(function(){
+                      document.activeElement.scrollIntoViewIfNeeded();
+                    },0);
+                  }
+                })
+              }
         }else{
             $('html,body').animate({
                 scrollTop: 100,
