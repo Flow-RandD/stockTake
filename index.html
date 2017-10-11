@@ -43,6 +43,14 @@
         margin: auto;
         overflow: auto;
       }
+      .scroll {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow-y: scroll;
+      }
       input[type=text]:focus {
         background-color: lightblue;
       }
@@ -60,7 +68,7 @@
   <header><marquee><h3>Stock Take</h3></marquee></header>
     <div id="div1">
     <h5>Please complete the form</h5>
-      <form name="formA">
+      <form class="scroll" name="formA">
           <label id="locationLB">Location:</label><br>
           <input type="text" id="location" name="location" style="width:50%"><br><br>
           <label id="ptNumLB">GS-ACE Part Number:</label><br>
@@ -110,13 +118,7 @@
         //window.scrollTo(0,500);  
         //document.body.scrollTop = $(this).offset().top;
         if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {           
-            //setTimeout(window.scrollTo(0,100),100); // first value for left offset, second value for top offset
-            $('html,body').animate({
-                scrollTop: 100,
-                scrollLeft: 0
-            }, 800, function(){
-                $('html,body').clearQueue();
-            });
+            setTimeout(window.scrollTo(0,100),100); // first value for left offset, second value for top offset
         }else{
             $('html,body').animate({
                 scrollTop: 100,
