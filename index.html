@@ -68,7 +68,7 @@
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
         <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
         <label id="qtyLB">Quantity:</label><br>
-        <input type="text" id="qty" name="qty" style="width:50%" onfocus="ensureVisible(this)"><br><br>
+        <input type="number" id="qty" name="qty" style="width:50%" onfocus="ensureVisible(this)"><br><br>
         <label id="notesLB">Notes:</label><br>
         <input type="text" id="notes" name="notes" style="width:50%" onfocus="ensureVisible(this)"><br><br>
     </form>
@@ -102,27 +102,20 @@
     </script>
     
     <script>
-      var scrolling = function(e, c) {
-          e.scrollIntoView();
-        if (c < 5) setTimeout(scrolling, 300, e, c + 1);
-      };
-      var ensureVisible = function(e) {
-          setTimeout(scrolling, 300, e, 0);
-      };
-//      $('#qty').on('focus', function() {
-//        //window.scrollTo(0,500);  
-//        //document.body.scrollTop = $(this).offset().top;
-//        if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {           
-//            window.scrollTo(0,100) // first value for left offset, second value for top offset
-//        }else{
-//            $('html,body').animate({
-//                scrollTop: 100,
-//                scrollLeft: 0
-//            }, 800, function(){
-//                $('html,body').clearQueue();
-//            });
-//        }
-//      });  
+      $('#qty').on('focus', function() {
+        //window.scrollTo(0,500);  
+        //document.body.scrollTop = $(this).offset().top;
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {           
+            window.scrollTo(0,100) // first value for left offset, second value for top offset
+        }else{
+            $('html,body').animate({
+                scrollTop: 100,
+                scrollLeft: 0
+            }, 800, function(){
+                $('html,body').clearQueue();
+            });
+        }
+      });  
     </script>
       
     <script>
