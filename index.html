@@ -111,7 +111,9 @@
         type:"GET",
         dataType:"json",
         }).done(function(res) {
-          alert('success, GS returned ' + res)
+          if (res!=""){
+            alert(res);
+          }
         })
           .fail(function(e) {
           alert("error:" + e)
@@ -130,7 +132,9 @@
         type:"GET",
         dataType:"json",
         }).done(function(res) {
-          alert('success FS returned ' + res)
+          if (res!=""){
+            alert(res);
+          }
         })
           .fail(function(e) {
           alert("error:" + e)
