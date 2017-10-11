@@ -60,7 +60,7 @@
         <label id="locationLB">Location:</label><br>
         <input type="text" id="location" name="location" style="width:50%"><br><br>
         <label id="ptNumLB">GS-ACE Part Number:</label><br>
-        <input type="text" id="ptNum" name="ptNum" style="width:50%"><br><br>
+        <input type="text" id="ptNum" name="ptNum" style="width:50%" onchange="validatorGS()"><br><br>
         <label id="stockCdLB">Flowstore Stock Code:</label><br>
         <input type="text" id="stockCd" name="stockCd" style="width:50%" onchange="validatorFS()"><br><br>
         <label id="unitOfMeasureLB">Unit of Measure:</label><br>
@@ -101,6 +101,25 @@
     </script>
       
     <script>
+    function validatorGS(){
+      var code = "validatorGS";
+      var stockCd = $('#ptNum').val();
+      
+      $.ajax({
+        url:"https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec",data:
+        {"code":code, "stockCd":stockCd}, 
+        type:"GET",
+        dataType:"json",
+        }).done(function(res) {
+          alert('success, GS returned ' + res)
+        })
+          .fail(function(e) {
+          alert("error:" + e)
+        });
+      }
+    </script>
+      
+    <script>
     function validatorFS(){
       var code = "validatorFS";
       var stockCd = $('#stockCd').val();
@@ -111,26 +130,12 @@
         type:"GET",
         dataType:"json",
         }).done(function(res) {
-          alert('success ' + res)
+          alert('success FS returned ' + res)
         })
           .fail(function(e) {
           alert("error:" + e)
         });
       }
-      
-//      function validatorFS(){
-//         var stockCd = $('#stockCd').val();
-//        
-//         $.ajax({
-//          url:"https://script.google.com/macros/s/AKfycbwj9cojincMON_MhvuN4PuPZnywKSLG8onzfBzBeKE2FjFzbLTF/exec",data:
-//          {"stockCd":stockCd}, 
-//          type:"POST",dataType:"json",statusCode:
-//          {0:function(){
-//            alert("JSON sent validatorFS");
-//          }
-//         }
-//        });
-//      }
     </script>
         
     <script>
