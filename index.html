@@ -102,8 +102,18 @@
     
     <script>
       $('#qty').on('focus', function() {
-        window.scrollTo(0,500);  
+        //window.scrollTo(0,500);  
         //document.body.scrollTop = $(this).offset().top;
+        if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {           
+            window.scrollTo(0,100) // first value for left offset, second value for top offset
+        }else{
+            $('html,body').animate({
+                scrollTop: 100,
+                scrollLeft: 0
+            }, 800, function(){
+                $('html,body').clearQueue();
+            });
+        }
       });  
     </script>
       
