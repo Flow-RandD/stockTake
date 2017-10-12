@@ -134,29 +134,16 @@
             });
       });
       
-//      $('#qty').on('focus', function() {
-//        //window.scrollTo(0,500);  
-//        //document.body.scrollTop = $(this).offset().top;
-//        if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
-//            setTimeout(window.scrollTo(0,100),100); // first value for left offset, second value for top offset
-//              if(/Android 4\.[0-3]/.test(navigator.appVersion)){
-//                window.addEventListener("resize", function(){
-//                  if(document.activeElement.tagName=="INPUT"){
-//                    window.setTimeout(function(){
-//                      document.activeElement.scrollIntoViewIfNeeded();
-//                    },0);
-//                  }
-//                })
-//              }
-//        }else{
-//            $('html,body').animate({
-//                scrollTop: 100,
-//                scrollLeft: 0
-//            }, 800, function(){
-//                $('html,body').clearQueue();
-//            });
-//        }
-//      });  
+      $('#notes').on('focus', function() {
+        //var elmnt = document.getElementById("qty");
+        //elmnt.scrollIntoView();
+        $('html,body').animate({
+                scrollTop: 100,
+                scrollLeft: 0
+            }, 400, function(){
+                $('html,body').clearQueue();
+            });
+      });
     </script>
       
     <script>
