@@ -239,6 +239,12 @@
             $('input[name="stockCd"], textarea').val('');
             $('input[name="qty"], textarea').val('');
             $('input[name="notes"], textarea').val('');
+              $('html,body').animate({
+                  scrollTop: 0,
+                  scrollLeft: 0
+                }, 400, function(){
+                $('html,body').clearQueue();
+              });
           }
         }
       });
