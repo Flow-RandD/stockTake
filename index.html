@@ -124,8 +124,14 @@
     
     <script>
       $('#qty').on('focus', function() {
-        var elmnt = document.getElementById("qty");
-        elmnt.scrollIntoView();
+        //var elmnt = document.getElementById("qty");
+        //elmnt.scrollIntoView();
+        $('html,body').animate({
+                scrollTop: 100,
+                scrollLeft: 0
+            }, 800, function(){
+                $('html,body').clearQueue();
+            });
       });
       
 //      $('#qty').on('focus', function() {
