@@ -105,9 +105,11 @@
           <input type="text" id="ptNum" name="ptNum" placeholder="Scan the box Part No..." style="width:50%" onchange="validatorGS()"><br><br>
           <label id="stockCdLB">Flowstore Stock Code:</label><br>
           <input type="text" id="stockCd" name="stockCd" placeholder="Scan our Stock Code.." style="width:50%" onchange="validatorFS()"><br><br>
-          <label id="unitOfMeasureLB">Unit of Measure:</label><br>
-          <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
-          <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
+          <div class="radios">
+            <label id="unitOfMeasureLB">Unit of Measure:</label><br>
+            <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
+            <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
+          </div>
           <label id="qtyLB">Quantity:</label><br>
           <input type="number" id="qty" name="qty" placeholder="How many in this box.." style="width:50%"><br><br>
           <label id="notesLB">Notes:</label><br>
