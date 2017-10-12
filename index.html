@@ -206,7 +206,7 @@
         {"location":location,"ptNum":ptNum,"stockCd":stockCd,"qty":qty,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
         type:"POST",dataType:"json",statusCode:
         {0:function(){
-            alert("JSON sent");
+            alert("Stock Updated!");
             $('input[name="unitOfMeasure"]:checked').prop('checked',false);
             $('input[name="ptNum"], textarea').val('');
             $('input[name="stockCd"], textarea').val('');
