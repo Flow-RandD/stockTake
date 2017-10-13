@@ -72,10 +72,13 @@
       input[type=text]:focus {
         background-color: lightblue;
       }
+      ::-webkit-input-placeholder {
+        color: #454545;
+      }
       input[type=text],input[type=number],.radios {
         border-radius: 4px;
         border: 1px solid:#8e8e8e;
-        color: #454545;
+        color: #222222;
         font-family: 'Advent Pro';
         font-size:14px;
       }
@@ -141,7 +144,7 @@
         for(var i = 0, max = radios.length; i < max; i++) {
           radios[i].onclick = function() {
             if (this.value=="metre"){
-              result = prompt("How many metres is this item:","3");
+              result = prompt("How many metres is each item:","3");
             }else {
               result = "";
             }
@@ -245,6 +248,7 @@
                 }, 400, function(){
                 $('html,body').clearQueue();
               });
+            document.getElementById("ptNum").focus();
           }
         }
       });
