@@ -153,6 +153,16 @@
             }
           }
         }
+      
+      var inputs = $(':input').keyup(function (event) {
+        if (event.keyCode == 13) {			
+        event.preventDefault();
+		    var nextInput = inputs.get(inputs.index(this) + 1);
+			    if (nextInput) {
+            		nextInput.focus();
+       		}
+        }
+      });
     </script>
     
     <script>
@@ -260,5 +270,6 @@
     function uncheckAll(){
         $('input[name="unitOfMeasure"]:checked').prop('checked',false);
         $('input[type="text"], textarea').val('');
+        $('input[name="qty"], textarea').val('');
     }
     </script>
