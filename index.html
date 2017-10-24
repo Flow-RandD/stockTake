@@ -1,275 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <link rel="manifest" href="manifest.json">
+<html lang="en">
+	<head>
+		<!-- Bootstrap required meta tags -->
+    		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	
+  	
 
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="calUP">
-  <meta name="apple-mobile-web-app-title" content="sorUP">
-  <meta name="theme-color" content="#b3ffff">
-  <meta name="msapplication-navbutton-color" content="#ffff00">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-starturl" content="https://flow-randd.github.io/calendarUpdate/">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <base target="_top">
-    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
-    <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
+  		<meta name="mobile-web-app-capable" content="yes">
+  		<meta name="apple-mobile-web-app-capable" content="yes">
+  		<meta name="application-name" content="calUP">
+  		<meta name="apple-mobile-web-app-title" content="sorUP">
+  		<meta name="theme-color" content="#b3ffff">
+  		<meta name="msapplication-navbutton-color" content="#ffff00">
+  		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  		<meta name="msapplication-starturl" content="https://flow-randd.github.io/calendarUpdate/">
+
+  		<base target="_top">
+  		<link rel="manifest" href="manifest.json">
+    	<link rel="manifest" href="manifest.json">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     
-    <style> 
-      h5 {
-        color: #222222;
-        font-family: 'Advent Pro';
-        font-size:20px;
-        margin-top: 0px
-      }
-      h3 {
-        color: #000000;
-        font-family: 'Advent Pro';
-        font-size:18px;
-        margin-top: 0px
-      }
-      html, body {
-        background: #FFFFFF;
-        padding: 0px;
-        height: 100%;
-        width: 99%;
-        margin: auto;
-        overflow:auto;
-        position: relative;
-        background: #FFFFFF; /* For browsers that do not support gradients */
-        background: -webkit-linear-gradient(rgba(179,255,255,1), white);
-        background: -moz-linear-gradient(rgba(179,255,255,1), white);
-        background: -o-linear-gradient(rgba(179,255,255,1), white);
-        background: linear-gradient(rgba(179,255,255,1), white 70%);
-      }
-      #div1 {  
-        border-radius: 25px;
-        padding: 10px;
-        height: auto;
-        width: auto;
-        margin: auto;
-        overflow: auto;
-      }
-      div.sticky {
-        position: -webkit-sticky;
-        position: sticky;
-        bottom:0;
-        float:right;
-        color: #454545;
-        font-family: 'Advent Pro';
-        font-size:12px;
-      }
-      .scroll {
-        position: relative;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow-y: auto;
-      }
-      input[type=text]:focus {
-        background-color: lightblue;
-      }
-      ::-webkit-input-placeholder {
-        color: #aeaeae;
-        font-size:12px;
-        font-weight:50;
-      }
-      input[type=text],input[type=number],.radios {
-        border-radius: 4px;
-        border: 1px solid:#8e8e8e;
-        color: #222222;
-        font-family: 'Advent Pro';
-        font-size:14px;
-        font-weight:250;
-      }
-      label {
-        color: #222222;
-        font-family: 'Advent Pro';
-        font-size:17px;
-        font-weight:150;
-      }
-      img {
-        display: block;
-        margin: auto;
-        width: 80%
-      }
-    </style>
-    <img src="https://flow-randd.github.io/calendarUpdate/images/Flowstore_Logo_CUT OUT_v1.png" alt="FLOWSTORE SYSTEMS LTD.">
-  </head>
+  	</head>
 
-  <body>
-  <!--bodyInner-->  
-  <header><marquee><h3>Stock Take</h3></marquee></header>
-    <div id="div1">
-    <h5>Please complete the form</h5>
-      <form class="scroll" name="formA">
-          <label id="locationLB">Location:</label><br>
-          <input type="text" id="location" name="location" placeholder="G01A01.." style="width:50%" autocomplete="off"><br><br>
-          <label id="ptNumLB">GS-ACE Part Number:</label><br>
-          <input type="text" id="ptNum" name="ptNum" placeholder="Scan the box Part No..." style="width:50%" onchange="validatorGS()" autocomplete="off"><br><br>
-          <label id="stockCdLB">Flowstore Stock Code:</label><br>
-          <input type="text" id="stockCd" name="stockCd" placeholder="Scan our Stock Code.." style="width:50%" onchange="validatorFS()" autocomplete="off"><br><br>
-          <div class="radios">
-            <label id="unitOfMeasureLB">Unit of Measure:</label><br>
-            <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">Metre<br>
-            <input type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">Each<br><br>
-          </div>
-          <label id="qtyLB">Quantity:</label><br>
-          <input type="number" id="qty" name="qty" placeholder="How many in this box.." style="width:50%" autocomplete="off"><br><br>
-          <label id="notesLB">Notes:</label><br>
-          <input type="text" id="notes" name="notes" placeholder="Notes, if needed.." style="width:50%" autocomplete="off"><br><br>
-      </form>
+  	<body>
+	<!--Bootstrap scripts-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!--was 2.1.1, this is not a required BS script but is positioned to let Modal work-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	
+  	<!--bodyInner-->  
+  	<div class="jumbotron jumbotron-fluid" style="background-color: #b3ffff;">
+		<div class="container"></div>
+			<img class="container-fluid" src="https://flow-randd.github.io/calendarUpdate/images/Flowstore_Logo_CUT OUT_v1.png" alt="FLOWSTORE SYSTEMS LTD.">
+			<marquee><p class="lead">Stock Take</p></marquee>
+			<hr class="my-4">
+		</div>
+	</div>
+  
+    <div class="p-3 mb-2 bg-light text-dark" class="container-fluid" id="div1">
+			<h5>Please complete the form</h5>
+			<form name="formA">
+						<div class="form-group">
+		          			<label class="font-weight-bold" id="locationLB">Location:</label>
+		          			<input type="text" class="form-control" id="location" name="location" placeholder="G01A01.." style="width:100%" autocomplete="off">
+						</div>
+			  	<div class="form-row">
+				  	<div class="col-md-6">
+						<div class="form-group">
+		          			<label class="font-weight-bold" id="ptNumLB">GS-ACE Part Number:</label>
+		          			<input type="text" class="form-control" id="ptNum" name="ptNum" placeholder="Scan the box Part No..." style="width:100%" onchange="validatorGS()" autocomplete="off">
+				  		</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+		          			<label class="font-weight-bold" id="stockCdLB">Flowstore Stock Code:</label>
+		          			<input type="text" class="form-control" id="stockCd" name="stockCd" placeholder="Scan our Stock Code.." style="width:100%" onchange="validatorFS()" autocomplete="off">
+				  		</div>
+					</div>
+		      	</div>
+					<label class="font-weight-bold" id="unitOfMeasureLB">Unit of Measure:</label>
+						<div class="form-check">
+			        		<label class="form-check-label">
+			            		<input class="form-check-input" type="radio" id="unitOfMeasure" name="unitOfMeasure" value="metre">
+								Metre
+							</label>
+						</div>
+						<div class="form-check">
+			        		<label class="form-check-label">
+			            		<input class="form-check-input" type="radio" id="unitOfMeasure" name="unitOfMeasure" value="each">
+								Each
+							</label>
+			        	</div>
+						<div class="form-group">
+							<label class="font-weight-bold" id="qtyLB">Quantity:</label>
+		          			<input type="number" class="form-control" id="qty" name="qty" placeholder="250.." style="width:100%" autocomplete="off">
+							<small id="qtyHelp" class="form-text text-muted">This is the quantity in this box alone. Please scan every box and do the quantities for each.</small>
+						</div>
+						<div class="form-group">
+		          			<label class="font-weight-bold" id="notesLB">Notes:</label>
+		          			<input type="text" class="form-control" id="notes" name="notes" placeholder="Notes, if needed.." style="width:100%" autocomplete="off">
+						</div>
+			</form>
+			
+			<!-- The Modal -->
+		    	<div id="alertModal" class="modal">
+		      	<!-- Modal content -->
+  			  <div class="modal-dialog" role="document">
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <span class="close">&times;</span>
+			          <h2>Modal Header</h2>
+			        </div>
+			        <div class="modal-body">
+			          <pre id="contentModal"></pre>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			  </div>
+		    </div>
            
       <div id="clickers">  
         <!-- Post -->
-        <button class="action" type="submit" id="submit-form" onclick="postToAppsScript()">Submit</button>
-        <!-- Clear -->
-        <button class="Close" onclick="uncheckAll()">Clear</button><p><br><p>
-      
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <button id="authorize-button" style="display: none;">Authorise</button><p>
-        <button id="signout-button" style="display: none;">Sign Out</button>
+	    <button class="btn btn-info" type="submit" id="submit-form" onclick="postToAppsScript()">Submit</button>
+	    <!-- Clear -->
+	    <button class="btn btn-light" onclick="uncheckAll()">Clear</button><p><br><p>
       </div>
-    </div>
     
-    <div style="padding-bottom:250px"></div>
-    <div class="sticky">Generic terms and conditions</div>
+	  <div style="padding-bottom:250px"></div>
+	  <nav class="navbar fixed-bottom navbar-light bg-light" style="padding-bottom:5px">
+		<a class="navbar ml-auto"><small class="text-muted">Generic terms and conditions</small></a>
+	  </nav>
+	</div>
       
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      
-    <script>
-      var radios = document.formA.unitOfMeasure;
-        for(var i = 0, max = radios.length; i < max; i++) {
-          radios[i].onclick = function() {
-            if (this.value=="metre"){
-              result = prompt("How many metres is each item:","3");
-            }else {
-              result = "";
-            }
-          }
-        }
-      
-      var inputs = $(':input').keyup(function (event) {
-        if (event.keyCode == 13) {			
-        event.preventDefault();
-		    var nextInput = inputs.get(inputs.index(this) + 1);
-			    if (nextInput) {
-            		nextInput.focus();
-       		}
-        }
-      });
-    </script>
-    
-    <script>
-      $('#qty').on('focus', function() {
-        //var elmnt = document.getElementById("qty");
-        //elmnt.scrollIntoView();
-        $('html,body').animate({
-                scrollTop: 100,
-                scrollLeft: 0
-            }, 400, function(){
-                $('html,body').clearQueue();
-            });
-      });
-      
-      $('#notes').on('focus', function() {
-        //var elmnt = document.getElementById("qty");
-        //elmnt.scrollIntoView();
-        $('html,body').animate({
-                scrollTop: 500,
-                scrollLeft: 0
-            }, 400, function(){
-                $('html,body').clearQueue();
-            });
-      });
-    </script>
-      
-    <script>
-    function validatorGS(){
-      var code = "validatorGS";
-      var stockCd = $('#ptNum').val();
-      
-      $.ajax({
-        url:"https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec",data:
-        {"code":code, "stockCd":stockCd}, 
-        type:"GET",
-        dataType:"json",
-        }).done(function(res) {
-          if (res==1){
-            //alert(res);
-          }else{
-            alert(res);
-          }
-        })
-          .fail(function(e) {
-          alert("error:" + e)
-        });
-      }
-    </script>
-      
-    <script>
-    function validatorFS(){
-      var code = "validatorFS";
-      var stockCd = $('#stockCd').val();
-      
-      $.ajax({
-        url:"https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec",data:
-        {"code":code, "stockCd":stockCd}, 
-        type:"GET",
-        dataType:"json",
-        }).done(function(res) {
-          if (res==1){
-            //alert(res);
-          }else{
-            alert(res);
-          }
-        })
-          .fail(function(e) {
-          alert("error:" + e)
-        });
-      }
-    </script>
-        
-    <script>
-     function postToAppsScript(){      
-      var location =$('#location').val();
-      var ptNum = $('#ptNum').val();
-      var stockCd = $('#stockCd').val();
-      var unitOfMeasure = $('input[name="unitOfMeasure"]:checked').val() + " " + result;
-      var qty = $('#qty').val();
-      var notes = $('#notes').val();
-      
-      $.ajax({
-        url:"https://script.google.com/macros/s/AKfycbxxRB4577AipPmQfMdJdR-9b85NeKJao7l868DgEtgouVPc9qMi/exec",data:
-        {"location":location,"ptNum":ptNum,"stockCd":stockCd,"qty":qty,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
-        type:"POST",dataType:"json",statusCode:
-        {0:function(){
-            alert("Stock Updated!");
-            $('input[name="unitOfMeasure"]:checked').prop('checked',false);
-            $('input[name="ptNum"], textarea').val('');
-            $('input[name="stockCd"], textarea').val('');
-            $('input[name="qty"], textarea').val('');
-            $('input[name="notes"], textarea').val('');
-              $('html,body').animate({
-                  scrollTop: 0,
-                  scrollLeft: 0
-                }, 400, function(){
-                $('html,body').clearQueue();
-              });
-            document.getElementById("ptNum").focus();
-          }
-        }
-      });
-    }  
-      
-    function uncheckAll(){
-        $('input[name="unitOfMeasure"]:checked').prop('checked',false);
-        $('input[type="text"], textarea').val('');
-        $('input[name="qty"], textarea').val('');
-    }
-    </script>
+		<!--general scripts-->  
+	    	<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="myscripts.js"></script>
+	</body>
