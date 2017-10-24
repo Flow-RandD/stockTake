@@ -19,8 +19,8 @@
     "type": "image/png",
     "sizes": "192x192"
   }],
-  "background_color": "#b3ffff",
+  "background_color": "#B3FFD9",
   "start_url": "https://flow-randd.github.io/stockTake/",
   "display": "fullscreen",
-  "theme_color": "#b3ffff"
+  "theme_color": "#B3FFD9"
 }
