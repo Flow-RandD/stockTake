@@ -2,7 +2,7 @@
         for(var i = 0, max = radios.length; i < max; i++) {
           radios[i].onclick = function() {
             if (this.value=="metre"){
-              result = prompt("How many metres is this item:","3");
+              result = prompt("What is the length of each item (metres):","3");
             }else {
               result = "";
             }
