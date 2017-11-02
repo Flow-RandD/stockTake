@@ -8,6 +8,16 @@
             }
           }
         }
+	
+       var inputs = $(':input').keyup(function (event) {
+        if (event.keyCode == 13) {			
+        event.preventDefault();
+		var nextInput = inputs.get(inputs.index(this) + 1);
+			if (nextInput) {
+          		nextInput.focus();
+       		}
+        }
+      });
     
       $('#qty').on('focus', function() {
         $('html,body').animate({
