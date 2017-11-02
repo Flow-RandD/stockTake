@@ -58,7 +58,7 @@
       
       $('#notes').on('focus', function() {
         $('html,body').animate({
-                scrollTop: 500,
+                scrollTop: 550,
                 scrollLeft: 0
             }, 400, function(){
                 $('html,body').clearQueue();
