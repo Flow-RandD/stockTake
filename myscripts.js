@@ -49,7 +49,7 @@
     
       $('#qty').on('focus', function() {
         $('html,body').animate({
-                scrollTop: 450,
+                scrollTop: 400,
                 scrollLeft: 0
             }, 400, function(){
                 $('html,body').clearQueue();
