@@ -134,8 +134,9 @@
         {"location":location,"ptNum":ptNum,"stockCd":stockCd,"qty":qty,"unitOfMeasure":unitOfMeasure,"notes":notes}, 
         type:"POST",dataType:"json",statusCode:
         {0:function(){
-            $('.modal-body').text("Stock record created!");
-			$('#alertModal').modal('show');
+            $('.modal-header').text('Success');
+	    $('.modal-body').text("Stock updated!");
+	    $('#alertModal').modal('show');
             $('input[name="unitOfMeasure"]:checked').prop('checked',false);
             $('input[name="ptNum"], textarea').val('');
             $('input[name="stockCd"], textarea').val('');
