@@ -3,6 +3,9 @@
           radios[i].onclick = function() {
             if (this.value=="metre"){
               result = prompt("What is the length of each item (metres):","3");
+		if (result>4){
+			alert("We don't normally stock anything greater than 4 metres, please double check");
+		}
             }else {
               result = "";
             }
