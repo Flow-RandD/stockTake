@@ -2,7 +2,7 @@
         for(var i = 0, max = radios.length; i < max; i++) {
           radios[i].onclick = function() {
             if (this.value=="metre"){
-              result = prompt("What is the length of each item (metres):","3");
+              result = prompt("What is the length of each item (metres):","e.g. 3");
 		if (result>4){
 			alert("We don't normally stock anything greater than 4 metres, please double check");
 		}
